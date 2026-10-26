@@ -150,25 +150,36 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextStyle {
-  static const TextStyle authenticationHeader = TextStyle(
-    fontSize: 40,
+  static TextStyle authenticationHeader = TextStyle(
+    fontSize: 40.sp,
     fontWeight: FontWeight.w600,
   );
 
-  static const TextStyle textFieldHint = TextStyle(
-    fontSize: 13,
+  static TextStyle textFieldHint = TextStyle(
+    fontSize: 13.sp,
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle elevatedButton = TextStyle(
-    fontSize: 13,
+  static TextStyle elevatedButton = TextStyle(
+    fontSize: 13.sp,
     fontWeight: FontWeight.w600,
   );
 
-  static const TextStyle normalText = TextStyle(
-    fontSize: 11,
+  static TextStyle normalText = TextStyle(
+    fontSize: 11.sp,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle homeHeaderText = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle titleStyle = TextStyle(
+    fontSize: 19.sp,
     fontWeight: FontWeight.w600,
   );
 }

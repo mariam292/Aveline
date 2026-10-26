@@ -8,25 +8,33 @@ class PassTextField extends StatelessWidget {
     super.key,
     required this.hintTxt,
     required this.iconPath,
+    required this.controller,
   });
   final String hintTxt;
   final String iconPath;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+
       decoration: InputDecoration(
         fillColor: AppColors.whiteClr,
         filled: true,
+
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.secondryClr, width: 1.5),
           borderRadius: BorderRadius.circular(14),
         ),
+
         prefixIcon: SvgPicture.asset(iconPath, fit: BoxFit.scaleDown),
+
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.mutedColor),
           borderRadius: BorderRadius.circular(14),
         ),
+
         hintText: hintTxt,
         hintStyle: AppTextStyle.textFieldHint.copyWith(
           color: AppColors.mutedColor,

@@ -33,6 +33,7 @@ class SocialLogin extends StatelessWidget {
           label: 'Google',
           buttonClr: AppColors.whiteClr,
           labelClr: AppColors.textPrimaryColor,
+          onpressed: () {},
         ),
         SizedBox(height: 22),
 

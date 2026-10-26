@@ -8,14 +8,16 @@ class CustomElevatedButton extends StatelessWidget {
     required this.label,
     required this.buttonClr,
     required this.labelClr,
+    required this.onpressed,
   });
   final String label;
   final Color buttonClr, labelClr;
+  final VoidCallback onpressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onpressed,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(14),
