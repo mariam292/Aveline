@@ -4,7 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+  const ProductCard({
+    super.key,
+    required this.coverPictureUrl,
+    required this.brandName,
+    required this.itemName,
+    required this.price,
+  });
+  final String coverPictureUrl;
+  final String brandName;
+  final String itemName;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +30,8 @@ class ProductCard extends StatelessWidget {
                 topRight: Radius.circular(20.r),
               ),
 
-              child: Image.asset(
-                'assets/images/testingimg2.png',
+              child: Image.network(
+                coverPictureUrl,
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
@@ -34,7 +44,7 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'brandName',
+                  brandName,
                   style: AppTextStyle.textFieldHint.copyWith(
                     color: AppColors.secondryClr,
                   ),
@@ -42,7 +52,7 @@ class ProductCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  'itemName',
+                  itemName,
                   style: AppTextStyle.normalText.copyWith(
                     color: AppColors.textPrimaryColor,
                   ),
@@ -52,14 +62,14 @@ class ProductCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'price',
+                      price,
                       style: AppTextStyle.normalText.copyWith(
                         color: AppColors.textPrimaryColor,
                       ),
                     ),
 
                     Text(
-                      'currency',
+                      'EGP',
                       style: AppTextStyle.textFieldHint.copyWith(
                         color: AppColors.textSecondryColor,
                       ),

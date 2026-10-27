@@ -1,5 +1,7 @@
 import 'package:aveline/core/app_colors.dart';
 import 'package:aveline/core/app_text_style.dart';
+import 'package:aveline/features/Home/cubit/category/categories_cubit.dart';
+import 'package:aveline/features/Home/cubit/product/product_cubit.dart';
 import 'package:aveline/features/authentication/cubit/authentication_cubit.dart';
 import 'package:aveline/features/authentication/cubit/authentication_states.dart';
 import 'package:aveline/features/authentication/data/auth_remote_data_source.dart';
@@ -66,7 +68,29 @@ class _LogInScreenState extends State<LogInScreen> {
                     if (state is AuthSuccessState) {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                        MaterialPageRoute(
+                          // builder: (context) => BlocProvider(
+                          //   create: (context) =>
+                          //       CategoriesCubit()..getCategory(),
+                          //   child: HomeScreen(),
+                          // ),
+                          builder: (context) => MultiBlocProvider(
+                            providers: [
+                              //* category bloc provider
+                              BlocProvider(
+                                create: (context) =>
+                                    CategoriesCubit()..getCategory(),
+                              ),
+
+                              //* product bloc provider
+                              BlocProvider(
+                                create: (context) =>
+                                    ProductCubit()..getProduct(),
+                              ),
+                            ],
+                            child: HomeScreen(),
+                          ),
+                        ),
                       );
                     } else if (state is AuthFailureState) {
                       ScaffoldMessenger.of(

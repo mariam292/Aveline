@@ -19,6 +19,7 @@ class AvelineApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(390, 844),
+
       builder: (context, child) => MaterialApp(
         // theme: ThemeData(
         //   // This is the theme of your application.

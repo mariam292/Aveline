@@ -8,9 +8,15 @@ import 'package:aveline/features/authentication/presentation/widgets/custom_text
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final TextEditingController SearchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,10 +34,11 @@ class HomeScreen extends StatelessWidget {
 
                 SizedBox(height: 20.h),
 
-                // CustomTextField(
-                //   hintTxt: 'Search bags, jewelry, more...',
-                //   iconPath: 'assets/icons/searchIcon.svg', controller: null,
-                // ),
+                CustomTextField(
+                  hintTxt: 'Search bags, jewelry, more...',
+                  iconPath: 'assets/icons/searchIcon.svg',
+                  controller: SearchController,
+                ),
                 SizedBox(height: 25.h),
 
                 CategoriesSection(categoriesCount: 15),
