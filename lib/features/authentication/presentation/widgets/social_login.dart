@@ -8,9 +8,11 @@ class SocialLogin extends StatelessWidget {
     super.key,
     required this.authFooterText1,
     required this.authFooterText2,
+    required this.onpressed,
   });
   final String authFooterText1;
   final String authFooterText2;
+  final VoidCallback onpressed;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,7 @@ class SocialLogin extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: onpressed,
               child: Text(
                 authFooterText2,
                 style: AppTextStyle.normalText.copyWith(

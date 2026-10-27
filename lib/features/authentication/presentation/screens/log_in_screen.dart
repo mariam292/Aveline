@@ -6,6 +6,7 @@ import 'package:aveline/features/authentication/cubit/authentication_cubit.dart'
 import 'package:aveline/features/authentication/cubit/authentication_states.dart';
 import 'package:aveline/features/authentication/data/auth_remote_data_source.dart';
 import 'package:aveline/features/Home/presentation/screens/home_screen.dart';
+import 'package:aveline/features/authentication/presentation/screens/sign_up_screen.dart';
 import 'package:aveline/features/authentication/presentation/widgets/auth_header.dart';
 import 'package:aveline/core/widgets/custom_elevated_button.dart';
 import 'package:aveline/features/authentication/presentation/widgets/custom_text_field.dart';
@@ -69,11 +70,6 @@ class _LogInScreenState extends State<LogInScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          // builder: (context) => BlocProvider(
-                          //   create: (context) =>
-                          //       CategoriesCubit()..getCategory(),
-                          //   child: HomeScreen(),
-                          // ),
                           builder: (context) => MultiBlocProvider(
                             providers: [
                               //* category bloc provider
@@ -124,6 +120,17 @@ class _LogInScreenState extends State<LogInScreen> {
                 SocialLogin(
                   authFooterText1: 'New to Aveline?',
                   authFooterText2: 'Create account',
+                  onpressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                          create: (context) => AuthCubit(),
+                          child: SignUpScreen(),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

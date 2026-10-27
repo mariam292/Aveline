@@ -23,4 +23,32 @@ class AuthRemoteDataSource {
       rethrow;
     }
   }
+
+  //register data
+
+  Future<Response> registerDataSource({
+    required String email,
+    required String password,
+    required String firstName,
+    required String lastName,
+  }) async {
+    try {
+      final response = await dio.post(
+        'https://accessories-eshop.runasp.net/api/auth/register',
+        data: {
+          "email": email,
+          "password": password,
+          "firstName": firstName,
+          "lastName": lastName,
+        },
+      );
+
+      return response;
+    } on DioException catch (e) {
+      log('register error: ${e.response?.data ?? e.message}');
+      rethrow;
+    }
+  }
+
+  //* otp data
 }

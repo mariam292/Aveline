@@ -1,8 +1,6 @@
-import 'package:aveline/features/Home/presentation/screens/home_screen.dart';
 import 'package:aveline/features/authentication/cubit/authentication_cubit.dart';
 import 'package:aveline/features/authentication/presentation/screens/log_in_screen.dart';
-import 'package:aveline/features/authentication/presentation/screens/sign_up_screen.dart';
-import 'package:aveline/features/product_details/screens/product_details_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

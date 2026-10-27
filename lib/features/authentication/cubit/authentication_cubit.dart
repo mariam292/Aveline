@@ -7,6 +7,9 @@ class AuthCubit extends Cubit<AuthStates> {
 
   final AuthRemoteDataSource authRemoteDataSource = AuthRemoteDataSource();
 
+
+  //* login
+
   Future<void> logincubit(String email, String password) async {
     emit(AuthLoadingState());
 
@@ -19,6 +22,25 @@ class AuthCubit extends Cubit<AuthStates> {
       emit(AuthSuccessState());
     } on Exception catch (e) {
       emit(AuthFailureState(errorMessage: 'Login Failed. Please try again'));
+    }
+  }
+
+
+  //*register
+
+
+  Future<void> registercubit(String email, String password,String firstName,String lastName)async {
+    emit(AuthLoadingState());
+
+    try {
+      await authRemoteDataSource.registerDataSource(
+        email: email,
+        password: password, firstName: firstName, lastName: lastName,
+      );
+
+      emit(AuthSuccessState());
+    } on Exception catch (e) {
+      emit(AuthFailureState(errorMessage: 'register Failed. Please try again'));
     }
   }
 }

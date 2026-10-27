@@ -3,6 +3,7 @@ import 'package:aveline/core/app_text_style.dart';
 import 'package:aveline/features/Home/cubit/product/product_cubit.dart';
 import 'package:aveline/features/Home/cubit/product/product_states.dart';
 import 'package:aveline/features/Home/presentation/widgets/product_card.dart';
+import 'package:aveline/features/product_details/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,13 +44,22 @@ class ProductsSection extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   final product = products[index];
-                  return ProductCard(
-                    coverPictureUrl: product.coverPictureUrl,
-                    brandName: product.categories.isNotEmpty
-                        ? product.categories.first
-                        : '',
-                    itemName: product.name,
-                    price: product.price.toString(),
+                  return InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductDetailsScreen(productDetails: product),
+                      ),
+                    ),
+                    child: ProductCard(
+                      coverPictureUrl: product.coverPictureUrl,
+                      brandName: product.categories.isNotEmpty
+                          ? product.categories.first
+                          : '',
+                      itemName: product.name,
+                      price: product.price.toString(),
+                    ),
                   );
                 },
               );
